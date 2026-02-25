@@ -1,6 +1,6 @@
 # Docker MS Registry
 
-Builds a Docker image for the MS Registry Django application. App code is cloned from [AniaAlex/ms-registry](https://github.com/AniaAlex/ms-registry) at build time.
+Builds a Docker image for the MS Registry Django application.
 
 ## Quick Start
 
