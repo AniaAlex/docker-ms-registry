@@ -22,14 +22,6 @@ make clean
 docker build -f Dockerfile --build-arg MS_REGISTRY_VERSION=v1.2.3 -t docker-ms-registry:latest .
 ```
 
-## Exposed Ports
-
-| Port | Description       |
-|------|-------------------|
-| 3030 | uWSGI socket      |
-| 8000 | HTTP              |
-| 8443 | HTTPS             |
-
 ## Repository Contents
 
 - `Dockerfile` — image definition; clones app code from GitHub at build time
