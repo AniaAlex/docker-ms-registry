@@ -8,20 +8,20 @@ RUN mkdir -p /mnt/logs/
 RUN apt-get update && apt-get install -y \
     build-essential \
     python3-dev \
-    libssl-dev \
     postgresql-client \
+    uwsgi \
+    uwsgi-plugin-python3 \
     git && \
     rm -rf /var/lib/apt/lists/*
 
 # Python deps (controlled from this repo)
 ADD requirements.txt requirements.txt
-RUN pip install -r requirements.txt pyuwsgi
+RUN pip install -r requirements.txt
 
 # Trim build deps
 RUN apt-get --purge autoremove -y \
     build-essential \
-    python3-dev \
-    libssl-dev
+    python3-dev
 
 # Clone app code from GitHub
 RUN git clone --branch ${MS_REGISTRY_VERSION} --depth 1 \

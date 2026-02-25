@@ -40,4 +40,4 @@ echo "Starting uWSGI server..."
 echo "---"
 
 # Execute uWSGI
-exec /usr/local/bin/uwsgi --ini "${UWSGI_INI}"
+exec uwsgi --ini "${UWSGI_INI}"
