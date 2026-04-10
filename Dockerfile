@@ -1,5 +1,6 @@
 FROM python:3.13-slim-bookworm
-ARG MS_REGISTRY_VERSION=main
+#ARG MS_REGISTRY_VERSION=main
+ARG MS_REGISTRY_VERSION=remove-rp-registraton-module
 ENV PYTHONUNBUFFERED=1
 
 RUN mkdir -p /mnt/logs/
