@@ -1,6 +1,6 @@
 FROM python:3.13-slim-bookworm
-#ARG MS_REGISTRY_VERSION=main
-ARG MS_REGISTRY_VERSION=98d7d7126252fe47eb3a8d3c517f75eacb54e85f
+ARG MS_REGISTRY_VERSION=main
+#ARG MS_REGISTRY_VERSION=98d7d7126252fe47eb3a8d3c517f75eacb54e85f
 ENV PYTHONUNBUFFERED=1
 
 RUN mkdir -p /mnt/logs/
@@ -26,10 +26,10 @@ RUN apt-get --purge autoremove -y \
     libssl-dev
 
 # Clone app code from GitHub
-#RUN git clone --branch ${MS_REGISTRY_VERSION} --depth 1 \
-#    https://github.com/AniaAlex/ms-registry.git /tmp/ms-registry
-RUN git clone https://github.com/AniaAlex/ms-registry.git /tmp/ms-registry && \
-    git -C /tmp/ms-registry checkout ${MS_REGISTRY_VERSION}
+RUN git clone --branch ${MS_REGISTRY_VERSION} --depth 1 \
+    https://github.com/AniaAlex/ms-registry.git /tmp/ms-registry
+# RUN git clone https://github.com/AniaAlex/ms-registry.git /tmp/ms-registry && \
+#     git -C /tmp/ms-registry checkout ${MS_REGISTRY_VERSION}
 
 # uWSGI config (controlled from this repo)
 ADD uwsgi.ini /etc/uwsgi/app.ini
