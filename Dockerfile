@@ -1,6 +1,5 @@
 FROM python:3.13-slim-bookworm
-ARG MS_REGISTRY_VERSION=90bb4eac38d8354b1a0136679da431b57998a875
-#ARG MS_REGISTRY_VERSION=main
+ARG MS_REGISTRY_VERSION=main
 ENV PYTHONUNBUFFERED=1
 
 RUN mkdir -p /mnt/logs/
@@ -26,10 +25,6 @@ RUN apt-get --purge autoremove -y \
     libssl-dev
 
 # Clone app code from GitHub
-# RUN git clone --branch ${MS_REGISTRY_VERSION} --depth 1 \
-#     https://github.com/AniaAlex/ms-registry.git /tmp/ms-registry
-# RUN git clone https://github.com/AniaAlex/ms-registry.git /tmp/ms-registry && \
-#     git -C /tmp/ms-registry checkout ${MS_REGISTRY_VERSION}
 RUN git clone https://github.com/AniaAlex/ms-registry.git /tmp/ms-registry && \
     git -C /tmp/ms-registry checkout ${MS_REGISTRY_VERSION}
 
