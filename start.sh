@@ -18,7 +18,7 @@ echo ""
 
 # Wait for database to be ready
 echo "Waiting for database to be ready..."
-until python manage.py check --database default 2>/dev/null; do
+until pg_isready -h "${POSTGRES_HOST:-postgres}" -p "${POSTGRES_PORT:-5432}" -U "${POSTGRES_USER:-postgres}" -d "${POSTGRES_DB:-ms_registry}" -q; do
     echo "Database not ready yet, waiting..."
     sleep 2
 done
